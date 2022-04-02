@@ -13,7 +13,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_14_Exercise_Element {
+public class Topic_06_Exercise_Element {
 	WebDriver driver;
 	private String projectPath = System.getProperty("user.dir");
 	private String urlFirstPage = "https://automationfc.github.io/basic-form/index.html";
