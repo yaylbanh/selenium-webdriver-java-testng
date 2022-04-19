@@ -115,7 +115,6 @@ public class Topic_09_Button_DefaultRadio_Checkbox {
 		Assert.assertFalse(driver.findElement(heatedCB).isSelected());
 		
 	}
-	@Test
 	public void TC_04_Multiple_Checkbox() {
 		driver.get("https:automationfc.github.io/multiple-fields/");
 		List<WebElement> checkboxs = driver.findElements(By.cssSelector("input[type='checkbox']"));
@@ -125,6 +124,32 @@ public class Topic_09_Button_DefaultRadio_Checkbox {
 			e.click();
 			sleep(1);
 		}
+	}
+	@Test
+	public void TC_05_Custom_Radio() {
+		driver.get("https://material.angular.io/components/radio/examples");
+		By winterRadioInput = By.cssSelector("input[value='Winter']");
+		By winterRadioSpan = By.xpath("//input[@value='Winter']/preceding-sibling::span[@class='mat-radio-inner-circle']");
+		//click
+	
+//		driver.findElement(winterRadioSpan).click();
+		clickByJavascript(winterRadioSpan);
+		sleep(2);
+		Assert.assertTrue(driver.findElement(winterRadioInput).isSelected());
+	}
+	public void TC_06_Custom_Checkbox() {
+		driver.get("https://material.angular.io/components/checkbox/examples");
+		By checkboxChecked = By.xpath("//span[text()='Checked']/preceding-sibling::span/input");
+		By checkboxIndeterminate = By.xpath("//span[text()='Indeterminate']/preceding-sibling::span/input");
+		clickByJavascript(checkboxChecked);
+		Assert.assertTrue(driver.findElement(checkboxChecked).isSelected());
+		
+		clickByJavascript(checkboxIndeterminate);
+		Assert.assertTrue(driver.findElement(checkboxIndeterminate).isSelected());
+	}
+	
+	public void clickByJavascript(By by) {
+		jsExcutor.executeScript("arguments[0].click()", driver.findElement(by));
 	}
 	public void sleep(int second)   {
 		try {
