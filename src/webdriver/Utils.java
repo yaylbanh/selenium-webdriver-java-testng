@@ -10,7 +10,7 @@ public class Utils {
 		jsExcutor.executeScript("arguments[0].click()", driver.findElement(by));
 	}
 	
-	public static void sleep(int second)   {
+	public static void sleepToSecond(int second)   {
 		try {
 			Thread.sleep(second*1000);	
 		}catch(InterruptedException ex) {
